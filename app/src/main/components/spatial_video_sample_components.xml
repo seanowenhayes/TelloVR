@@ -1,0 +1,3 @@
+<ComponentSchema packageName="seanowenhayes.TelloVR">
+  <Component name="SpatializedAudioPanel" />
+</ComponentSchema>
