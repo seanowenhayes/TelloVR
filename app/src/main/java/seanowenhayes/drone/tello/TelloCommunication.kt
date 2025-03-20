@@ -33,8 +33,6 @@ object TelloCommunication {
     private var udpStatusPort: Int? = null
     var timeout: Int = 10000
 
-    // Private constructor, holder class and getInstance() implement this
-    // class as a singleton.
     init {
         try {
             ipAddress = InetAddress.getByName(TelloDrone.IP_ADDRESS)
@@ -73,7 +71,7 @@ object TelloCommunication {
 
     @Synchronized
     @Throws(TelloConnectionException::class, TelloCommandException::class)
-    fun executeCommand(telloCommand: TelloCommand) {
+    fun executeCommand(telloCommand: Command) {
         val response: String
 
         if (!ds!!.isConnected) throw TelloConnectionException("No connection")
@@ -160,6 +158,4 @@ object TelloCommunication {
         return String(response, StandardCharsets.UTF_8)
     }
 
-    companion object {
-    }
 }
